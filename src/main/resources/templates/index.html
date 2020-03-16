@@ -1,337 +1,144 @@
 ﻿<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>乐思域</title>
-    
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-    <meta name="apple-mobile-app-capable" content="yes">
-    <meta name="apple-mobile-app-status-bar-style" content="black">
-   
-    <meta name="description" content="一只叫做黑夜的阿宅，想成为家喻户晓的大侠">
-    <meta name="keywords" content="二次元，宅属性，前端，编程，全栈，绘画，设计">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="author" content="cononico">
-    <meta name="application-name" content="Cononico" >
 
-    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}">
-    <link rel="stylesheet" type="text/css" th:href="@{/css/process.css}">
-    <link rel="shortcut icon"  type="image/x-icon" th:href="@{/fav/favicon.ico}" />
-    
-    <script type="text/javascript">
-        //设定rem值
-        document.getElementsByTagName("html")[0].style.fontSize = document.documentElement.clientWidth/20 + 'px';
+<head>
+    <meta charset="UTF-8">
+    <title> - 乐思域 -</title>
+    <meta name="keywords" content="博客,个人网站,GeeYo,ThinkPHP,bootstrap">
+    <meta name="description" content="我爱中国，我是蔡范宾">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="shortcut icon" th:href="@{/style/images/favicon.ico}" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="360-site-verification" content="9080cebca28f53d9fb200a9ef6d9c873" />
+    <!-- Js -->
+    <link rel="stylesheet" th:href="@{/style/css/bootstrap.min.css}">
+    <script th:src="@{/style/js/jquery.min.js}"></script>
+    <script th:src="@{/style/js/tether.min.js}"></script>
+    <script th:src="@{/style/js/bootstrap.min.js}"></script>
+    <link th:href="@{/style/css/style.css}" type="text/css" rel="stylesheet" />
+    <script>
+    (function(window) {
+        var theUA = window.navigator.userAgent.toLowerCase();
+        if ((theUA.match(/msie\s\d+/) && theUA.match(/msie\s\d+/)[0]) || (theUA.match(/trident\s?\d+/) && theUA.match(/trident\s?\d+/)[0])) {
+            var ieVersion = theUA.match(/msie\s\d+/)[0].match(/\d+/)[0] || theUA.match(/trident\s?\d+/)[0];
+            if (ieVersion < 10) {
+                var str = "你的浏览器版本太low了\n已经和时代脱轨了 :(";
+                var str2 = "推荐使用:<a href='https://www.baidu.com/s?ie=UTF-8&wd=%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8' target='_blank' style='color:red'>谷歌</a>," + "<a href='https://www.baidu.com/s?ie=UTF-8&wd=%E7%81%AB%E7%8B%90%E6%B5%8F%E8%A7%88%E5%99%A8' target='_blank' style='color:red'>火狐</a>," + "<a href='https://www.baidu.com/s?ie=UTF-8&wd=%E7%8C%8E%E8%B1%B9%E6%B5%8F%E8%A7%88%E5%99%A8' target='_blank' style='color:red'>猎豹</a>,其他双核急速模式";
+                document.writeln("<pre style='text-align:center;color:#fff;background-color:#0cc; height:100%;border:0;position:fixed;top:0;left:0;width:100%;z-index:1234'>" +
+                    "<h2 style='padding-top:200px;margin:0'><strong>" + str + "<br/></strong></h2><p>" +
+                    str2 + "</p><h2 style='margin:0'><strong>如果你的使用的是双核浏览器,请切换到极速模式访问<br/></strong></h2></pre>");
+                document.execCommand("Stop");
+            };
+        }
+    })(window);
     </script>
 </head>
+
 <body>
-	<header class="head">
-        <div class="head_logo_div">
-            <img class="logo_img" th:src="@{/images/upload/head.jpg}"></a>
-        </div>
-        <div class="head_nav_div">
-             <nav class="head_nav">
-                <ul id="nav_ul">
-                    <li class="nav_li_on nav_ul_li">Home</li>
-                    <li class="nav_ul_li">Skill</li>
-                    <li class="nav_ul_li">Experience</li>
-                    <li class="nav_ul_li">Hobby</li>
-                    <li class="nav_ul_li">Contact</li>
+    <!-- Header -->
+    <div class="nav">
+        <a class="logo" th:href="@{/index.html}"><img th:src="@{/style/images/logo.png}" width="40" title="lesiyu"></a>
+        <a class="logo pull-right sobtn"><span class="glyphicon glyphicon-search" style="color: #B4B4B4;"></span></a>
+    </div>
+    <!-- Body -->
+    <section class="cd-hero">
+        <ul class="cd-hero-slider autoplay">
+            <li class="selected">
+                <div class="cd-half-width">
+                    <h2>蔡范宾</h2>
+                    <p>爱音乐、爱吃、爱生活</p>
+                    <p>Java开发攻城狮，'会找影视资源'的好人</p>
+                    <a class="cd-btn" href="/about">查看详情</a>
+                </div>
+                <div class="cd-half-width cd-img-container">
+                    <img th:src="@{/style/images/tech-1.png}" alt="蔡范宾" title="蔡范宾" />
+                </div>
+            </li>
+            <li>
+                <div class="cd-full-width">
+                    <h2>观点与分享</h2>
+                    <p>记录生活点滴，分享人生喜乐！</p>
+                    <a class="cd-btn" th:href="@{/bokeindex}" target="_blank">查看详情</a>
+                </div>
+            </li>
+
+            <li class="cd-bg-video">
+                <div class="cd-full-width">
+                    <h2>志趣相投</h2>
+                    <p>我们都一样热爱生活，记录生活，享受生活！</p>
+                    <a class="cd-btn" th:href="@{/friends}">查看详情</a>
+                </div>
+                <div class="cd-bg-video-wrapper" data-video="Tpl/Individual/Style/index/video/video">
+                </div>
+            </li>
+            <li>
+                <div class="cd-full-width">
+                    <h2>说走就走</h2>
+                    <p>生活不止眼前的苟且，还有诗和远方的田野！</p>
+                    <a class="cd-btn" th:href="@{/tracks}">查看详情</a>
+                </div>
+            </li>
+        </ul>
+        <div class="cd-slider-nav">
+            <nav>
+                <span class="cd-marker item-1"></span>
+                <ul>
+                    <li class="selected">
+                        <a class="glyphicon glyphicon-user" href="#0">简介</a>
+                    </li>
+                    <li>
+                        <a class="glyphicon glyphicon-fire" href="#0">博客</a>
+                    </li>
+
+                    <li>
+                        <a class="glyphicon glyphicon-record" href="#0">圈子</a>
+                    </li>
+                    <li>
+                        <a class="glyphicon glyphicon-globe" href="#0">旅行</a>
+                    </li>
                 </ul>
             </nav>
         </div>
-        <div class="clear"></div>
-    </header>
-    
-    <ul class="float_btn" id="float_btn">
-        <li class="btn_on"></li>
-        <li></li>
-        <li></li>
-        <li></li>
-    </ul>
-    
-    <div class="wrapBox" id="wrapBox">
-        <div class="box">
-            <img class="box_bg" th:src="@{/images/upload/pic_1.jpg}">
-            <div class="box01_content">
-                <div class="head_div">
-                    <div class="cycle_item">
-                        <a href="https://yoomeili.cn" class="github_a" id="github_a" target="_blank">
-                            <span class="github_icon"></span>
-                            <span class="github_text"><p class="item_name">GitHub</p></span>
-                        </a>
-                        <a href="http://blog.yoomeili.cn" class="weibo_a" id="weibo_a" target="_blank">
-                            <span class="weibo_icon"></span>
-                            <span class="weibo_text"><p class="item_name">微博</p> </span>
-                        </a>
-                        <a href="http://blog.yoomeili.cn" class="blog_a" id="blog_a" target="_blank">
-                            <span class="blog_icon"></span>
-                            <span class="blog_text"><p class="item_name"> 博客</p></span>
-                        </a>
-
-                        <div class="green_cycle">
-                            <img class="green_cycle_img" th:src="@{/images/icon/green_cycle.svg}">
-                            <div class="yellow_cycle">
-                                <img class="yellow_cycle_img" th:src="@{/images/icon/yellow_cycle.svg}">
-                                <div class="blue_cycle">
-                                    <img class="blue_cycle_img" th:src="@{/images/icon/blue_cycle.svg}">
-                                    <div class="head_img_div">
-                                        <img class="head_img" th:src="@{/images/upload/head.jpg}">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    </section>
+    <script th:src="@{/style/js/main.js}"></script>
+    <!-- Footer -->
+    <div class="clear"></div>
+    <div class="foot">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <a href="#">粤ICP备16016164号-1</a>
                 </div>
-                <h1 class="title">蔡范宾</h1>
-                <h2 class="title_h2">千里之行，始于足下</h2>
-                <div id="box01_text">
-                <p class="box01_p">不久前还只是一个失业农民工.</p>
-                <p class="box01_p">现在还只是一只喜欢动漫和文学的学生党.</p>
-                <p class="box01_p">不久以后将是又一个人生迷茫的旅行者.</p>
+                <div class="col-sm-8 fr">Copyright © 2017<a href="#">AX</a> Rights Reserved.
                 </div>
-            </div>
-            <div class="arrow_div">
-                <img class="arrow_img" th:src="@{/images/icon/arrowhead.png}">
+                <p></p>
             </div>
         </div>
-        
-        <div class="box">
-            <img class="box_bg" th:src="@{/images/upload/pic_2.jpg}">
-            
-            <div class="box02_content box_content">
-                <div id='bar_container' class="bar_container">
-                    <div class='bar mint' data-percent='70' data-skill='mybatis'></div>
-                    <div class='bar red' data-percent='50' data-skill='mysql'></div>
-                    <div class='bar lila' data-percent='50' data-skill='redis'></div>
-                    <div class='bar orange' data-percent='50' data-skill='solr'></div>
-                    <div class='bar gray' data-percent='70' data-skill='spring全家桶'></div>
-                    <div class="bar green" data-percent='60' data-skill='thymeleaf'></div>
-                    <div class="bar mint" data-percent='50' data-skill='rabbitMQ'></div>
-                </div>
-                <div id="box02_text">
-                    <h1>About Skill</h1>
-                    <div class="overline"></div>
-                    <p>2018年4月，开始接触Java，并且开始自学</p>
-                    <p>2018年9月，学习完Java基础</p>
-                    <p>2019年开始学习各类框架</p>
-                    <p>2019年6月，完成了自己的第一个练习项目</p>
-                    <p>开始学习mysql高级</p>
-                    <p>2019年10月，进入某公司兼职开发</p>
-                    <p>2019年12月，完成了第一个真实项目《物业管理系统》</p>
-                    <p>现在，正在继续学习自己感兴趣的框架以及开发常用框架</p>
-                    <p>越学习，越快乐，越能感受到互联网的乐趣</p>
-                    <p>而未来...</p>
-                    <p>想成为一名全栈工程师</p>
-                </div>
-                <div class="clear"></div>
-            </div>
-            
-            <div class="arrow_div">
-                <img class="arrow_img" th:src="@{/images/icon/arrowhead.png}">
-            </div>
-            
-        </div>
-        
-        <div class="box">
-            <img class="box_bg" th:src="@{/images/upload/pic_3.jpg}">
-            
-            <div class="box_content box03_content">
-                <ul id="timeUl" class="timeUl">
-                    <li>
-                        <div>
-                            <h1>2014-2016</h1>
-                            <p>燕山大学</p>
-                            <p>专业：工商管理</p>
-
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <h1>2016.7-2017.10</h1>
-                            <p>指尖财经</p>
-                            <p>期货业务部</p>
-                            <p>业务经理</p>
-                            <p>带领10人小团队，完成业务目标</p>
-                           <p>这不是我想要的</p>
-                        </div>
-                    </li>
-                    <li>
-                       <div>
-                            <h1>2017.11-2018.4</h1>
-                            <p>众石财富</p>
-                            <p>基金销售经理</p>
-                            <p>迷茫的路</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <h1>2018.4-至今</h1>
-                            <p>bitget数字货币交易所</p>
-                            <p>商务运营</p>
-                            <p></p>
-                        </div>
-                    </li>
-                    <li>
-                       <div>
-                            <h1>Future</h1>
-                            
-                            <p>...</p>
-                        </div>
-                    </li>
-                </ul>
-                 <div class="left_div" id="left_div">
-                     <img class="left_arrow" th:src="@{/images/icon/arrowleft.png}">
-                 </div>
-                 <div class="right_div" id="right_div">
-                      <img class="right_arrow" th:src="@{/images/icon/arrowright.png}">
-                 </div>
-            </div>
-            
-             <div class="arrow_div">
-                <img class="arrow_img" th:src="@{/images/icon/arrowhead.png}">
+        <!-- 弹出层 -->
+        <div class="so">
+            <i class="iconfont" title="关闭">×</i>
+            <div class="container">
+                <form action="https://www.baidu.com/baidu" target="_blank">
+                    <input name="tn" type="hidden" value="SE_zzsearchcode_shhzc78w">
+                    <input type="text" name="word" class="form-control" baiduSug="1" value="百度搜索..." />
+                    <input type="submit" style="display: none;" />
+                </form>
             </div>
         </div>
-        
-        
-        <div class="box">
-            
-            <img class="box_bg" th:src="@{/images/upload/pic_4.jpg}">
-            <div class="box_content box04_content">
-                <h1 class="box04_title">Something Of Hobby</h1>
-                <ul class="hobby_content">
-                    <li class="hobby_01">
-                        <div class="hobby_img_div">
-                            <div class="spinner spinner_01"></div>
-                            <div class="hobby_img">
-                                <img th:src="@{/images/upload/music.jpg}">
-                            </div>
-                            <div class="hobby_img_info">
-                                <h1>Ears</h1>
-                                <h2>音乐</h2>
-                            </div>
-                        </div>
-                        <div class="hobby_text_div">
-                            <div class="hobby_img_info_mob">
-                            </div>
-                            <p class="about_p">
-                                喜欢音乐，爱唱爱听，遗传了我爸家的音乐细菌，麦霸就是我！
-                            </p>
-
-                        </div>
-                    </li>
-                    <li class="hobby_02">
-                        <div class="hobby_img_div">
-                            <div class="spinner spinner_02"></div>
-                            <div class="hobby_img">
-                                <img th:src="@{/images/upload/bilibili.jpg}">
-                            </div>
-                            <div class="hobby_img_info">
-                                <h1>ACG</h1>
-                                <h2>bilibili</h2>
-                            </div>
-                        </div>
-                        <div class="hobby_text_div">
-                            <div class="hobby_img_info_mob">
-                            </div>
-                            <p class="about_p">
-                                B站，是我的学习源泉，也是无聊时放松的快活站，没事逛一逛，学学专业知识，放松放松心情，good！
-                            </p>
-
-                        </div>
-                    </li>
-                    <li class="hobby_03">
-                        <div class="hobby_img_div">
-                            <div class="spinner spinner_03"></div>
-                            <div class="hobby_img">
-                                <img th:src="@{/images/upload/eat.jpg}">
-                            </div>
-                            <div class="hobby_img_info">
-                                <h1>hands</h1>
-                                <h2>做饭</h2>
-                            </div>
-                        </div>
-                        <div class="hobby_text_div">
-                            <div class="hobby_img_info_mob">
-                            </div>
-                            <p class="about_p">
-                               很奇怪，我做饭怎么就这么好吃呢？
-                            </p>
-
-                        </div>
-                    </li>
-                    <div class="clear"></div>
-                </ul>
-            </div>
-             <div class="arrow_div">
-                <img class="arrow_img" th:src="@{/images/icon/arrowhead.png}">
-            </div>
-        </div>
-        
-        <foot id="foot" class="foot">
-            <h1 class="foot_title">Contact With Me</h1>
-            <div class="foot_info_main">
-                <ul>
-                    <li class="github_items">
-                        <a href="http://blog.yoomeili.cn" target="_blank">GitHub</a>
-                    </li>
-                    <li class="google_items">
-                        <a href="http://blog.yoomeili.cn" target="_blank">Google+</a>
-                    
-                    </li>
-                    <li class="twitter_items">
-                        <a href="http://blog.yoomeili.cn" target="_blank">Twitter</a>
-                    
-                    </li>
-                    <li class="facebook_items">
-                        <a href="http://blog.yoomeili.cn" target="_blank">FaceBook</a>
-                    
-                    </li>
-                    <li class="weibo_items">
-                        <a href="http://blog.yoomeili.cn" target="_blank">微博</a>
-                    
-                    </li>
-                    <li class="zhihu_items">
-                        <a href="http://blog.yoomeili.cn" target="_blank">知乎</a>
-                    
-                     </li>
-                     <li class="blog_items">
-                        <a href="http://blog.yoomeili.cn" target="_blank">博客</a>
-                    
-                     </li>
-                     <li class="email_items">
-                        <a href="mailto:min@coolecho.net" target="_blank">邮箱</a>
-                    </li>
-                    <div class="clear"></div>
-                </ul>
-                <div class="qrcode_div">
-                    <span class="weixin">
-                        <a class="weixin_icon"></a>
-                        <img class="weixin_img" th:src="@{/images/upload/wechat.jpg}">
-                    </span>
-                    <span class="dingding">
-                        <a class="dingding_icon"></a>
-                        <img class="dingding_img" th:src="@{/images/upload/dingding_qr.png}">
-                    </span>
-                    <span class="qq">
-                        <a class="qq_icon"></a>
-                        <img class="qq_img" th:src="@{/images/upload/qq.jpg}">
-                    </span>
-                </div>
-            </div>
-            <div class="foot_power">
-                <h3>©2016 Pwoerd 
-                    <a href="http://yoomeili.cn" title="Night" target="_blank"> Night's</a>
-                    <a href="https://blog.yoomeili.cn" title="IceEnd">乐思域</a>
-                    <a href="http://www.miitbeian.gov.cn/" title="beian" target="_blank">浙ICP备14039906号-1</a>
-                </h3>
-            </div>
-        </foot>
     </div>
-    <script type="text/javascript" th:src="@{/js/main.js}"></script>
+    <div class="to-top">↑</div>
+    <script th:src="@{/style/js/GeeYo.js}"></script>
+    <script>
+    var bheigh = $(window).height();
+    var bheigh = bheigh - 115;
+    $(".cd-hero").css('height', bheigh);
+    $(window).resize(function() {
+        var bheigh = $(window).height();
+        var bheigh = bheigh - 115;
+        $(".cd-hero").css('height', bheigh);
+    });
+    </script>
+    <script charset="gbk" th:src="@{https://www.baidu.com/js/opensug.js}"></script>
 </body>
-    
-</html>
 
- 
+</html>

@@ -10,4 +10,24 @@ public class IndexController {
     public String index(){
         return "index";
     }
+
+    @RequestMapping("/about")
+    public String about(){
+        return "/about";
+    }
+
+    @RequestMapping("/friends")
+    public String friends(){
+        return "/friends";
+    }
+
+    @RequestMapping("/tracks")
+    public String tracks(){
+        return "/tracks";
+    }
+
+    @RequestMapping("/bokeindex")
+    public String bokeindex(){
+        return "/boke/index";
+    }
 }

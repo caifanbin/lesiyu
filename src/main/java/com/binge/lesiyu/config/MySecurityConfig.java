@@ -8,7 +8,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class MySecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/","/index","/css/**","/images/**","/js/**","/fav/**")
+                .antMatchers("/","/index","/vip/**","/images/**","/js/**","/fav/**","/style/**","/Tpl/**","/boke/**")
                 .permitAll();
     }
 }
