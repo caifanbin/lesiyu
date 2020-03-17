@@ -30,4 +30,9 @@ public class IndexController {
     public String bokeindex(){
         return "/boke/index";
     }
+
+    @RequestMapping("/login")
+    public String login(){
+        return "/login";
+    }
 }
