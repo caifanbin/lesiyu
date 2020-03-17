@@ -33,56 +33,6 @@ button:hover{box-shadow:0 15px 30px 0 rgba(255,255,255,.15) inset,0 2px 7px 0 rg
 .bottom a:hover{text-decoration:underline;}
 </style>
 
-	<script>
-$(function(){
-	$(".screenbg ul li").each(function(){
-		$(this).css("opacity","0");
-	});
-	$(".screenbg ul li:first").css("opacity","1");
-	var index = 0;
-	var t;
-	var li = $(".screenbg ul li");	
-	var number = li.size();
-	function change(index){
-		li.css("visibility","visible");
-		li.eq(index).siblings().animate({opacity:0},3000);
-		li.eq(index).animate({opacity:1},3000);
-	}
-	function show(){
-		index = index + 1;
-		if(index<=number-1){
-			change(index);
-		}else{
-			index = 0;
-			change(index);
-		}
-	}
-	t = setInterval(show,8000);
-	//根据窗口宽度生成图片宽度
-	var width = $(window).width();
-	$(".screenbg ul img").css("width",width+"px");
-});
-
-var username=$("#username").val();
-var password=$("#password").val();
-
-$("#loginbtn").click(function () {
-$.ajax({
-	type:"post",
-	data:{
-		"username":username,
-		"password":password
-	},
-	url:"/index",
-	beforeSend:function () {
-		return true;
-	},
-	success:function () {
-		window.location.href="/index"
-	}
-})
-})
-</script>
 
 </head>
 
@@ -90,7 +40,7 @@ $.ajax({
 
 <div class="login-box">
 	<h1>乐思域登录</h1>
-	<form method="post" >
+	<form method="post">
 		<div class="name">
 			<label>你的账号：</label>
 			<input type="text" name="username" id="username" tabindex="1" autocomplete="off" />
@@ -105,7 +55,7 @@ $.ajax({
 			<label>记住密码</label>
 		</div>
 		<div class="login">
-			<button  tabindex="5" id="loginbtn">登录</button>
+			<button type="button"  tabindex="5" id="loginbtn">登录</button>
 		</div>
 	</form>
 </div>
@@ -119,4 +69,60 @@ $.ajax({
 </div>
 
 </body>
+<script th:src="@{/jquery/jquery-2.1.1.min.js}"></script>
+<script>
+	$(function(){
+		$(".screenbg ul li").each(function(){
+			$(this).css("opacity","0");
+		});
+		$(".screenbg ul li:first").css("opacity","1");
+		var index = 0;
+		var t;
+		var li = $(".screenbg ul li");
+		var number = li.size();
+		function change(index){
+			li.css("visibility","visible");
+			li.eq(index).siblings().animate({opacity:0},3000);
+			li.eq(index).animate({opacity:1},3000);
+		}
+		function show(){
+			index = index + 1;
+			if(index<=number-1){
+				change(index);
+			}else{
+				index = 0;
+				change(index);
+			}
+		}
+		t = setInterval(show,8000);
+		//根据窗口宽度生成图片宽度
+		var width = $(window).width();
+		$(".screenbg ul img").css("width",width+"px");
+	});
+
+
+
+	$("#loginbtn").click(function () {
+		var username=$("#username").val();
+		var password=$("#password").val();
+		$.ajax({
+			type:"post",
+			data:{
+				"username":username,
+				"password":password
+			},
+			url:"/user/gologin",
+			beforeSend:function () {
+
+				return true;
+			},
+			success:function (result) {
+				alert("haha");
+				if(result.success) {
+					window.location.href = "/index"
+				}
+			}
+		})
+	});
+</script>
 </html>
