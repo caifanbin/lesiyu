@@ -1,10 +1,10 @@
 spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
-    username: root
-    password: 123456
+    username: caifanbin
+    password: passW0RD
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:33061/sxtest?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
+    url: jdbc:mysql://rm-2zemg97785apos937lo.mysql.rds.aliyuncs.com:3306/mydb?useUnicode=true&characterEncoding=utf-8&useSSL=false
 
     #   数据源其他配置 我们需要在配置类中配置，否则下面的加载不到
     initialSize: 5

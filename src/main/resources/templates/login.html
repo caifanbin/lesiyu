@@ -40,7 +40,7 @@ button:hover{box-shadow:0 15px 30px 0 rgba(255,255,255,.15) inset,0 2px 7px 0 rg
 
 <div class="login-box">
 	<h1>乐思域登录</h1>
-	<form method="post">
+	<form method="post" th:action="@{/login}">
 		<div class="name">
 			<label>你的账号：</label>
 			<input type="text" name="username" id="username" tabindex="1" autocomplete="off" />
@@ -55,7 +55,7 @@ button:hover{box-shadow:0 15px 30px 0 rgba(255,255,255,.15) inset,0 2px 7px 0 rg
 			<label>记住密码</label>
 		</div>
 		<div class="login">
-			<button type="button"  tabindex="5" id="loginbtn">登录</button>
+			<button type="submit"  tabindex="5" id="loginbtn">登录</button>
 		</div>
 	</form>
 </div>
@@ -102,7 +102,7 @@ button:hover{box-shadow:0 15px 30px 0 rgba(255,255,255,.15) inset,0 2px 7px 0 rg
 
 
 
-	$("#loginbtn").click(function () {
+	/*$("#loginbtn").click(function () {
 		var username=$("#username").val();
 		var password=$("#password").val();
 		$.ajax({
@@ -111,18 +111,16 @@ button:hover{box-shadow:0 15px 30px 0 rgba(255,255,255,.15) inset,0 2px 7px 0 rg
 				"username":username,
 				"password":password
 			},
-			url:"/user/gologin",
+			url:"/login",
 			beforeSend:function () {
 
 				return true;
 			},
-			success:function (result) {
+			success:function () {
 				alert("haha");
-				if(result.success) {
-					window.location.href = "/index"
-				}
+					window.location.href = "/bokeindex"
 			}
 		})
-	});
+	});*/
 </script>
 </html>

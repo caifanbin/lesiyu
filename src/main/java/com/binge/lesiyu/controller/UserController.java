@@ -13,12 +13,4 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/user")
 public class UserController {
 
-    @ResponseBody
-    @RequestMapping("/gologin")
-    public AjaxResult gologin(String username, String password){
-        System.out.println("123");
-        AjaxResult result = new AjaxResult();
-        result.setSuccess(true);
-        return result;
-    }
 }

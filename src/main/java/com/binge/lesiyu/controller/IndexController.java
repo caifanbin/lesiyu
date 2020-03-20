@@ -1,5 +1,6 @@
 package com.binge.lesiyu.controller;
 
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -16,6 +17,7 @@ public class IndexController {
         return "/about";
     }
 
+    @Secured("ROLE_ADMIN")
     @RequestMapping("/friends")
     public String friends(){
         return "/friends";

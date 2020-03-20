@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+        xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
         <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui">
@@ -79,7 +80,12 @@
                 </div>
       </div>
               <button class="js-toggle-search"><i class=" icon-search"></i></button>
-              <a href="#" class="toggle-tougao  hidden-xs">投稿</a> <a th:href="@{/login}" class="toggle-login hidden-xs">登录</a> <span class="line  hidden-xs"></span> <a href="#" class="toggle-login hidden-xs">注册</a> </div>
+              <a href="#" class="toggle-tougao  hidden-xs">投稿</a>
+        <a sec:authorize="!isAuthenticated()" th:href="@{/login}" class="toggle-login hidden-xs">登录</a>
+        <span class="line  hidden-xs"></span> <a sec:authorize="!isAuthenticated()" href="#" class="toggle-login hidden-xs">注册</a>
+        <span sec:authorize="isAuthenticated()" sec:authentication="name"></span>
+        <span sec:authorize="isAuthenticated()"><a href="/logout">注销</a></span>
+    </div>
   </div>
         </div>
 <div id="page-content" >
