@@ -23,7 +23,8 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/","/login","/static/**","/**").permitAll()
+        http.authorizeRequests().antMatchers("/","/login","/boke/**","/bokeindex"
+        ,"/jquery/**","/style/**","/Tpl/**","/vip/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin().loginPage("/login").defaultSuccessUrl("/bokeindex").failureUrl("/login").permitAll()
