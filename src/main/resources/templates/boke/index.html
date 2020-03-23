@@ -82,7 +82,7 @@
               <button class="js-toggle-search"><i class=" icon-search"></i></button>
               <a href="/release" class="toggle-tougao  hidden-xs">投稿</a>
         <a sec:authorize="!isAuthenticated()" th:href="@{/login}" class="toggle-login hidden-xs">登录</a>
-        <span class="line  hidden-xs"></span> <a sec:authorize="!isAuthenticated()" href="#" class="toggle-login hidden-xs">注册</a>
+        <span class="line  hidden-xs"></span> <a sec:authorize="!isAuthenticated()" href="/registered" class="toggle-login hidden-xs">注册</a>
         <span sec:authorize="isAuthenticated()" style="color: blue" sec:authentication="name"></span>
         <span sec:authorize="isAuthenticated()"><a href="/logout">注销</a></span>
     </div>
@@ -120,7 +120,7 @@
                 </div>
         <div class="top-singles hidden-xs">
                   <div class="single-item">
-            <div class="image" style="background-image:url(images/11.jpg)"> <a href="#">
+            <div class="image" style="background-image:url(boke/images/11.jpg)"> <a href="#">
               <div class="overlay"></div>
               <div class="cat">wordpress主题</div>
               <div class="title">
@@ -129,7 +129,7 @@
               </a> </div>
           </div>
                   <div class="single-item">
-            <div class="image" style="background-image:url(images/16.jpg)"> <a href="#">
+            <div class="image" style="background-image:url(boke/images/16.jpg)"> <a href="#">
               <div class="overlay"></div>
               <div class="cat">wordpress主题</div>
               <div class="title">
@@ -147,19 +147,19 @@
         <div class="cat">
                   <div class="thumbnail-cat">
             <div class="image col-xs-12 col-sm-4 col-md-4">
-                      <div class="index-cat-box" style="background-image:url(images/2.jpg)"> <a  class="iscat" href="#">
+                      <div class="index-cat-box" style="background-image:url(boke/images/2.jpg)"> <a  class="iscat" href="#">
                         <div class="promo-overlay">网站建设</div>
                         <div class="modulo_line"></div>
                         </a> </div>
                     </div>
             <div class="image col-xs-12 col-sm-4 col-md-4">
-                      <div class="index-cat-box" style="background-image:url(images/6.jpg)"> <a  class="iscat" href="#">
+                      <div class="index-cat-box" style="background-image:url(boke/images/6.jpg)"> <a  class="iscat" href="#">
                         <div class="promo-overlay">wordpress主题</div>
                         <div class="modulo_line"></div>
                         </a> </div>
                     </div>
             <div class="image col-xs-12 col-sm-4 col-md-4">
-                      <div class="index-cat-box" style="background-image:url(images/4.jpg)"> <a  class="iscat" href="#">
+                      <div class="index-cat-box" style="background-image:url(boke/images/4.jpg)"> <a  class="iscat" href="#">
                         <div class="promo-overlay">模板下载</div>
                         <div class="modulo_line"></div>
                         </a> </div>
@@ -449,7 +449,7 @@
             <ul class="widget_suxingme_topic">
                       <li> <a href="#" title="wordpress主题推荐">
                         <div class="overlay"></div>
-                        <div class="image" style="background-image: url(images/13.jpg);"></div>
+                        <div class="image" style="background-image: url(boke/images/13.jpg);"></div>
                         <div class="title">
                         <h4>wordpress主题推荐</h4>
                         <div class="meta"><span>查看专题</span></div>
@@ -459,7 +459,7 @@
             <ul class="widget_suxingme_topic">
                       <li> <a href="#" title="wordpress视频主题">
                         <div class="overlay"></div>
-                        <div class="image" style="background-image: url(images/5.jpg);"></div>
+                        <div class="image" style="background-image: url(boke/images/5.jpg);"></div>
                         <div class="title">
                         <h4>wordpress视频主题</h4>
                         <div class="meta"><span>查看专题</span></div>
@@ -469,7 +469,7 @@
             <ul class="widget_suxingme_topic">
                       <li> <a href="#" title="wordpress杂志主题">
                         <div class="overlay"></div>
-                        <div class="image" style="background-image: url(images/6.jpg);"></div>
+                        <div class="image" style="background-image: url(boke/images/6.jpg);"></div>
                         <div class="title">
                         <h4>wordpress杂志主题</h4>
                         <div class="meta"><span>查看专题</span></div>
@@ -572,8 +572,8 @@ var suxingme_url = {"slidestyle":"index_slide_sytle_2","wow":"1","sideroll":"1",
 </script> 
 <script type='text/javascript' th:src='@{/boke/js/plugins.min.js}'></script>
 <script type='text/javascript' th:src='@{/boke/js/lmlblog.js}'></script>
-<script type='text/javascript' th:src='@{/js/owl.carousel.min.js}'></script>
+<script type='text/javascript' th:src='@{/boke/js/owl.carousel.min.js}'></script>
 
-<script type='text/javascript' th:src='@{/js/wow.min.js}'></script>
+<script type='text/javascript' th:src='@{/boke/js/wow.min.js}'></script>
 </body>
 </html>

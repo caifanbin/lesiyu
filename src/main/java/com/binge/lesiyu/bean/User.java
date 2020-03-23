@@ -12,6 +12,10 @@ public class User implements UserDetails, Serializable {
     private String username;
     private String password;
     private int access;
+    private String tel;
+    private String email;
+    private String registrationTime;
+
 
     @Override
     public String toString() {
@@ -20,7 +24,34 @@ public class User implements UserDetails, Serializable {
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", access=" + access +
+                ", tel='" + tel + '\'' +
+                ", email='" + email + '\'' +
+                ", registrationTime='" + registrationTime + '\'' +
                 '}';
+    }
+
+    public String getRegistrationTime() {
+        return registrationTime;
+    }
+
+    public void setRegistrationTime(String registrationTime) {
+        this.registrationTime = registrationTime;
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public int getAccess() {

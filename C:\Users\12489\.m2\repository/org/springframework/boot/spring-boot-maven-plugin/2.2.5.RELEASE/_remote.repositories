@@ -1,0 +1,4 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Sat Mar 21 09:56:31 CST 2020
+spring-boot-maven-plugin-2.2.5.RELEASE.jar>nexus=
+spring-boot-maven-plugin-2.2.5.RELEASE.pom>nexus=

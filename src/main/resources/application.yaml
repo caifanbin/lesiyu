@@ -23,6 +23,17 @@ spring:
     maxPoolPreparedStatementPerConnectionSize: 20
     useGlobalDataSourceStat: true
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+  mail:
+    username: caifanbin@126.com
+    password: BVFNDVNHJEZJTQBT
+    host: smtp.126.com
+    properties:
+      mail:
+        smtp:
+          ssl:
+            enable: true
 
+  redis:
+    host: 127.0.0.1
 
 #mybatis相关配置
