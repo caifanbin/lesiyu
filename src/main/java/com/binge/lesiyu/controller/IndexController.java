@@ -23,32 +23,32 @@ public class IndexController {
 
     @RequestMapping("/about")
     public String about(){
-        return "/about";
+        return "about";
     }
 
     @RequestMapping("/friends")
     public String friends(){
-        return "/friends";
+        return "friends";
     }
 
     @RequestMapping("/tracks")
     public String tracks(){
-        return "/tracks";
+        return "tracks";
     }
 
     @RequestMapping("/bokeindex")
     public String bokeindex(){
-        return "/boke/index";
+        return "boke/index";
     }
 
     @RequestMapping("/login")
     public String login(){
-        return "/login";
+        return "login";
     }
 
     @RequestMapping("/registered")
     public String registered(){
-        return "/registered";
+        return "registered";
     }
 
     @ResponseBody

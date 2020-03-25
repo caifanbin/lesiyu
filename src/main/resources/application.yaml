@@ -37,3 +37,5 @@ spring:
     host: 127.0.0.1
 
 #mybatis相关配置
+server:
+  port: 80
