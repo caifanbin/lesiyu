@@ -245,7 +245,6 @@ function getcode() {
 			success:function (result) {
 				if(result.success){
 					layer.msg('发送成功');
-					ok();
 				}else {
 					layer.msg(result.message);
 				}
@@ -253,13 +252,13 @@ function getcode() {
 		})
 
 }
-	function ok(){
+	$(function(){
 		$(".codebtn").on("click", function(){
 			//...
 			countdown(this);
 			//...
 		})
-	};
+	});
 
 </script>
 </html>
