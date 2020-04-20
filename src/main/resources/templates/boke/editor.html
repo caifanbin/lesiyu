@@ -1,10 +1,163 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8" />
+    <title>Simple example - Editor.md examples</title>
+    <link rel="stylesheet" th:href="@{/style/css/style.css}" />
+    <link rel="stylesheet" th:href="@{/mk/css/editormd.css}" />
+
+
 </head>
+
 <body>
-<h1>hello</h1>
+
+<div id="layout">
+
+    <form method="post" action="/addtext" enctype="multipart/form-data">
+        <div>
+            <label>
+                <input id="title" name="title" maxlength="100" height="20%" width="90%" placeholder="请输入博客title" type="text">
+            </label>
+        </div>
+    <div id="test-editormd">
+                <textarea id="text" class="form-control"  name="text" style="display:none;">[TOC]
+
+#### Disabled options
+
+- TeX (Based on KaTeX);
+- Emoji;
+- Task lists;
+- HTML tags decode;
+- Flowchart and Sequence Diagram;
+
+#### Editor.md directory
+
+    editor.md/
+            lib/
+            css/
+            scss/
+            tests/
+            fonts/
+            images/
+            plugins/
+            examples/
+            languages/
+            editormd.js
+            ...
+
+```html
+&lt;!-- English --&gt;
+&lt;script src="../dist/js/languages/en.js"&gt;&lt;/script&gt;
+
+&lt;!-- 繁體中文 --&gt;
+&lt;script src="../dist/js/languages/zh-tw.js"&gt;&lt;/script&gt;
+```
+</textarea>
+    </div>
+        <div>
+            <button type="submit" >提交</button>
+        </div>
+    </form>
+</div>
+
+<script th:src="@{/style/js/jquery.min.js}"></script>
+<script th:src="@{/mk/editormd.min.js}"></script>
+<script type="text/javascript">
+    var testEditor;
+
+    $(function() {
+        testEditor = editormd("test-editormd", {
+            width   : "90%",
+            height  : 640,
+            syncScrolling : "single",
+            path    : "/mk/lib/",
+            saveHTMLToTextarea : true,
+            toolbarAutoFixed:true,//工具栏自动固定定位的开启与禁用
+            imageUpload : true,
+            emoji:true,
+            imageFormats : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+            imageUploadURL : "/imageUpload",
+            previewTheme : "dark",
+
+            onload : function() {
+                initPasteDragImg(this); //必须
+
+            }
+        });
+
+    });
+
+    function initPasteDragImg(Editor){
+        var doc = document.getElementById(Editor.id)
+        doc.addEventListener('paste', function (event) {
+            var items = (event.clipboardData || window.clipboardData).items;
+            var file = null;
+            if (items && items.length) {
+                // 搜索剪切板items
+                for (var i = 0; i < items.length; i++) {
+                    if (items[i].type.indexOf('image') !== -1) {
+                        file = items[i].getAsFile();
+                        break;
+                    }
+                }
+            } else {
+                console.log("当前浏览器不支持");
+                return;
+            }
+            if (!file) {
+                console.log("粘贴内容非图片");
+                return;
+            }
+            uploadImg(file,Editor);
+        });
+
+        var dashboard = document.getElementById(Editor.id)
+        dashboard.addEventListener("dragover", function (e) {
+            e.preventDefault()
+            e.stopPropagation()
+        })
+        dashboard.addEventListener("dragenter", function (e) {
+            e.preventDefault()
+            e.stopPropagation()
+        })
+        dashboard.addEventListener("drop", function (e) {
+            e.preventDefault()
+            e.stopPropagation()
+            var files = this.files || e.dataTransfer.files;
+            uploadImg(files[0],Editor);
+        })
+    }
+    function uploadImg(file,Editor){
+        var formData = new FormData();
+        var fileName=new Date().getTime()+"."+file.name.split(".").pop();
+        formData.append('editormd-image-file', file, fileName);
+
+        $.ajax({
+            url: Editor.settings.imageUploadURL,
+            type: 'post',
+            data: formData,
+            processData: false,
+            contentType: false,
+            dataType: 'json',
+            success: function (msg) {
+
+                var success=msg['success'];
+                if(success==1){
+                    var url=msg["url"];
+                    if(/\.(png|jpg|jpeg|gif|bmp|ico)$/.test(url)){
+                        Editor.insertValue("![图片alt]("+msg["url"]+" ''图片title'')");
+                    }else{
+                        Editor.insertValue("[下载附件]("+msg["url"]+")");
+                    }
+                }else{
+                    console.log(msg);
+                    alert("上传失败");
+                }
+            }
+        });
+
+
+    }
+</script>
 </body>
 </html>

@@ -228,8 +228,6 @@
 
 function getcode() {
 
-
-
 		var username= $("#username").val();
 		var email =$("#email").val();
 		$.ajax({
@@ -253,7 +251,16 @@ function getcode() {
 
 }
 	$(function(){
+
+
 		$(".codebtn").on("click", function(){
+			var email = $("#email").val();
+			if (email.trim().length < 1) {
+				layer.msg('请选择或填写邮箱！');
+				$('#email').focus();
+				return;
+			}
+
 			//...
 			countdown(this);
 			//...

@@ -37,6 +37,8 @@ public class UserService implements UserDetailsService {
     @Autowired
     private RedisTemplate redisTemplate;
 
+
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
@@ -129,6 +131,11 @@ public class UserService implements UserDetailsService {
 
         return result;
     }
+
+
+   public User getByUserName(String username) {
+        return userMapper.getUserByUsername(username);
+    };
 
 
 }

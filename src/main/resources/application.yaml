@@ -39,3 +39,7 @@ spring:
 #mybatis相关配置
 server:
   port: 80
+
+properties:
+  imgUrl: http://127.0.0.1:0000/
+  uploadPath: /Users/test/IdeaProjects/lesiyu/src/main/resources/static/upload/

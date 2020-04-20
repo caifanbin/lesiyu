@@ -14,4 +14,5 @@ public interface UserMapper {
 
     @Insert("insert into user(username,password,access,tel,email,registrationTime) values(#{username},#{password},#{access},#{tel},#{email},#{registrationTime})")
     void saveUser(User user);
+
 }

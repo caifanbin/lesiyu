@@ -1,5 +1,8 @@
 package com.binge.lesiyu;
 
+import com.binge.lesiyu.bean.UserText;
+import com.binge.lesiyu.commons.AjaxResult;
+import com.binge.lesiyu.service.UserTextService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -7,6 +10,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 
+import java.util.List;
 import java.util.UUID;
 
 @SpringBootTest
@@ -18,6 +22,9 @@ class LesiyuApplicationTests {
 
     @Autowired
     private RedisTemplate redisTemplate;
+
+    @Autowired
+    private UserTextService userTextService;
 
 
     @Test
@@ -43,8 +50,13 @@ class LesiyuApplicationTests {
     @Test
     void contextLoads3() {
 
-        Object s = redisTemplate.opsForValue().get("123");
-        System.out.println(s);
+        AjaxResult allText = userTextService.getAllText();
+        List<UserText> data = (List<UserText>) allText.getData();
+        for (UserText text: data) {
+            System.out.println(text.getTitle());
+        }
     }
+
+
 
 }

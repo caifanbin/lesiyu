@@ -3,9 +3,11 @@ package com.binge.lesiyu.controller;
 import com.binge.lesiyu.bean.User;
 import com.binge.lesiyu.commons.AjaxResult;
 import com.binge.lesiyu.service.UserService;
+import com.binge.lesiyu.service.UserTextService;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -15,6 +17,9 @@ public class IndexController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private UserTextService userTextService;
 
     @RequestMapping("/index")
     public String index(){
@@ -37,7 +42,8 @@ public class IndexController {
     }
 
     @RequestMapping("/bokeindex")
-    public String bokeindex(){
+    public String bokeindex(Model model){
+        model.addAttribute("alltext",userTextService.getall());
         return "boke/index";
     }
 
@@ -64,6 +70,8 @@ public class IndexController {
         System.out.println("mailcon");
         return userService.mailSender(username,email);
     }
+
+
 
 
 }

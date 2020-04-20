@@ -23,10 +23,11 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers("/","/login","/boke/**","/bokeindex"
-        ,"/jquery/**","/style/**","/Tpl/**","/vip/**","/registered","/toregistered","/authcode").permitAll()
+        ,"/jquery/**","/style/**","/Tpl/**","/vip/**","/registered","/toregistered","/authcode",
+                "/Users/**","/bootstrap/**","/getall").permitAll()
                 .anyRequest().authenticated()
                 .and()
-                .formLogin().loginPage("/login").defaultSuccessUrl("/bokeindex").failureUrl("/login").permitAll()
+                .formLogin().loginPage("/login").successForwardUrl("/bokeindex").failureUrl("/login?error=true").permitAll()
                 .and()
                 .logout().logoutSuccessUrl("/index").permitAll()
                 .and()
