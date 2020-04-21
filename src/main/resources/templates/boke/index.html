@@ -3,6 +3,7 @@
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head lang="en">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" th:href="@{/style/images/favicon.ico}" type="image/x-icon" />
     <title>simple博客</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
@@ -12,6 +13,7 @@
     <meta name="keywords" content="技术分享">
     <meta name="description" content="技术分享">
 
+
     <link rel="stylesheet" type="text/css" th:href="@{/boke/css/bootstrap.min.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/boke/css/build.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/boke/css/activity.css}">
@@ -20,8 +22,8 @@
     <link rel="stylesheet" type="text/css" th:href="@{/boke/css/dlzc.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/boke/css/nanoscroller.css}">
 
-    <script language="javascript" type="text/javascript" th:src="@{/boke/js/jquery-1.11.1.min.js}"></script>
-	<script language="javascript" type="text/javascript" th:src="@{/boke/s/main.js}"></script>
+    <script language="javascript" type="text/javascript" th:src="@{/jquery/jquery-2.1.1.min.js}"></script>
+	<script language="javascript" type="text/javascript" th:src="@{/boke/js/main.js}"></script>
     <script language="javascript" type="text/javascript" th:src="@{/boke/js/popwin.js}"></script>
        
 </head>
@@ -31,7 +33,7 @@
 <header id="top" role="banner" class="transition">
     <div class="container">
         <div class="navbar-header transition">
-            <a href="index.html" title="首页"><img th:src="@{/boke/images/logo.jpg}" alt="simple博客" title="首页" /></a>
+            <a href="index.html" title="首页"><img th:src="@{/boke/images/simple.png}" alt="simple博客" title="首页" /></a>
         </div>
         <ul class="nav navbar-nav navbar-left" id="jsddm">
             <a href="/release" class="toggle-tougao  hidden-xs">投稿</a>
@@ -90,7 +92,7 @@
                        </a>
                  </div>
                  <div class="column-link-box">
-                 	
+
                  </div>
                  <div class="mob-ctt">
                     <h2><a th:href="@{/aishow(id=${text.id})}" class="transition msubstr-row2" target="_blank" th:text="${text.title}"></a></h2>
@@ -138,13 +140,13 @@
         <span class="span-mark"></span>
         <div class="big2-pic pull-right">
             <a href="#" class="back-img" target="_blank">
-                <img class="lazy" th:src="@{/boke/sy-img/105108838520.jpg}" alt="">
+                <img class="lazy" th:src="@{/boke/sy-img/isme.jpeg}" alt="">
             </a>
         </div>
         <div class="clear"></div>
         <ul class="rumorlist">
             <li>    
-                <p>籍贯：山西 晋城</p>
+                <p>籍贯：河北 衡水</p>
                 <p>爱好：喜欢编程，就是技术太菜。</p>
                 <p>爱分享 音乐、视频和软件。</p>
             </li>
@@ -160,7 +162,7 @@
 
 <footer class="footer">
     <div class="container copy-right" style="text-align: center;">
-            <span> Copyright 2018 <a href="#"> 哥哥博客 </a> 邮箱:17737157627@163.com <img th:src="@{/boke/images/pic.gif}" style="width: 45px;"></span>
+            <span> Copyright 2020 <a href="#"> simple博客 </a> 邮箱:caifanbin@126.com <img th:src="@{/boke/images/pic.gif}" style="width: 45px;"></span>
     </div>
 </footer>
 <script type="text/javascript" th:src="@{/boke/js/mouse.js}"></script>
