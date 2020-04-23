@@ -60,7 +60,7 @@ public class IndexController {
     @ResponseBody
     @RequestMapping("/toregistered")
     public AjaxResult registered(User user,String authcode){
-        System.out.println("con");
+
         return userService.registered(user,authcode);
     }
 

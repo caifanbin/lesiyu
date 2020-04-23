@@ -88,7 +88,7 @@
             	 <div class="mod-angle">热</div>
                  <div class="mod-thumb ">
                        <a  class="transition" th:title="${text.title}" th:href="@{/aishow(id=${text.id})}" target="_blank">
-						  <img class="lazy" th:src="@{/boke/sy-img/111527830443.jpg}" alt="你的公司够前沿吗？至少在AI这件事上，多数企业都眼高手低">
+						  <img class="lazy" th:src="@{/boke/sy-img/111527830443.jpg}" th:alt="${text.preface}">
                        </a>
                  </div>
                  <div class="column-link-box">
@@ -107,7 +107,7 @@
                          <i class="icon icon-cmt"></i><em>0</em>
                          <i class="icon icon-fvr"></i><em>0</em>
                     </div>
-                    <div class="mob-sub">公司纷纷看好人工智能技术潜力的同时，真正应用在自己业务中的并不算多</div>
+                    <div class="mob-sub" th:text="${text.preface}"></div>
                  </div>
             </div>
 

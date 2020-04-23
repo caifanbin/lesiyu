@@ -25,7 +25,7 @@ spring:
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
   mail:
     username: caifanbin@126.com
-    password: BVFNDVNHJEZJTQBT
+    password: OWFXTCRSXVNDJMLY
     host: smtp.126.com
     properties:
       mail:
@@ -42,4 +42,10 @@ server:
 
 properties:
   imgUrl: http://127.0.0.1:0000/
-  uploadPath: /Users/test/IdeaProjects/lesiyu/src/main/resources/static/upload/
+  uploadPath: /Users/test/Desktop/123/
+
+debug: true
+logging:
+  level:
+    com:
+     binge: debug

@@ -26,7 +26,7 @@ public class UserTextService {
     @Autowired
     private UserMapper userMapper;
 
-    public UserText saveText(UserText userText){
+    public AjaxResult saveText(UserText userText){
 
         /*String s = UUID.randomUUID().toString()+".html";
 
@@ -62,6 +62,10 @@ public class UserTextService {
             e.printStackTrace();
         }
 */
+        AjaxResult result = new AjaxResult();
+
+        try {
+
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String name = auth.getName();
         Date date = new Date();
@@ -71,7 +75,18 @@ public class UserTextService {
         userText.setUserid(userMapper.getUserByUsername(name).getId());
         userText.setUsername(name);
         userTextMapper.saveText(userText);
-        return userText;
+        long id = userText.getId();
+        System.out.println("charu id" +id);
+        result.setSuccess(true);
+        result.setData(id);
+
+        }catch (Exception e){
+
+            result.setSuccess(false);
+            result.setMessage("保存失败");
+            e.printStackTrace();
+        }
+        return result;
     }
 
     public UserText getUserText(long id){
@@ -98,5 +113,7 @@ public class UserTextService {
     public List<UserText> getall(){
         return userTextMapper.getAll();
     }
+
+
 
 }

@@ -8,7 +8,7 @@ public class UserText {
     private String username;
     private String time;
     private String title;
-    private String textpath;
+    private String preface;
 
     @Override
     public String toString() {
@@ -19,16 +19,16 @@ public class UserText {
                 ", username='" + username + '\'' +
                 ", time='" + time + '\'' +
                 ", title='" + title + '\'' +
-                ", textpath='" + textpath + '\'' +
+                ", preface='" + preface + '\'' +
                 '}';
     }
 
-    public String getTextpath() {
-        return textpath;
+    public String getPreface() {
+        return preface;
     }
 
-    public void setTextpath(String textpath) {
-        this.textpath = textpath;
+    public void setPreface(String preface) {
+        this.preface = preface;
     }
 
     public String getTitle() {

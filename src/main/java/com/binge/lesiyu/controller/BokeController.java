@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
+import java.util.UUID;
 
 @Controller
 public class BokeController {
@@ -41,13 +42,6 @@ public class BokeController {
         return "boke/release";
     }
 
-    @RequestMapping("/addtext")
-    public String fu(UserText usertext, Model model){
-        UserText userText = userTextService.saveText(usertext);
-        System.out.println(userText);
-        model.addAttribute("usertext",userText);
-        return "boke/show";
-    }
 
     @RequestMapping(value="/imageUpload",method= RequestMethod.POST)
     public void hello(HttpServletRequest request, HttpServletResponse response, @RequestParam(value = "editormd-image-file", required = false) MultipartFile attach){
@@ -63,13 +57,14 @@ public class BokeController {
                 filePath.mkdirs();
             }
             System.out.println("a====="+rootpath);
-            String b = rootpath+ File.separator+attach.getOriginalFilename();
+            String s = UUID.randomUUID().toString()+".jpg";
+            String b = rootpath+s;
             System.out.println("b======"+b);
 //最终文件名
             File realFile=new File(b);
             attach.transferTo(realFile);
 //下面response返回的json格式是editor.md所限制的，规范输出就OK
-            response.getWriter().write( "{\"success\": 1, \"message\":\"上传成功\",\"url\":\"/upload/" + attach.getOriginalFilename() + "\"}" );
+            response.getWriter().write( "{\"success\": 1, \"message\":\"上传成功\",\"url\":\"/upload/" +s + "\"}" );
         } catch (Exception e) {
             e.printStackTrace();
             try {
@@ -83,6 +78,7 @@ public class BokeController {
   @RequestMapping("/aishow")
     public String aishow(Model model,long id){
       UserText userText = userTextService.getUserText(id);
+      System.out.println("idaid"+id);
       model.addAttribute("usertext",userText);
       return "/boke/show";
   }
@@ -92,6 +88,14 @@ public class BokeController {
     public AjaxResult getall(){
 
       AjaxResult result = userTextService.getAllText();
+      System.out.println(result.getSuccess());
+      return result;
+  }
+
+  @RequestMapping("/saveUserText")
+  @ResponseBody
+  public AjaxResult save(UserText userText){
+      AjaxResult result = userTextService.saveText(userText);
       System.out.println(result.getSuccess());
       return result;
   }
