@@ -13,7 +13,7 @@
 
 <div id="layout">
 
-    <form method="post"  enctype="multipart/form-data">
+    <form method="post" id="formto" name="formto"  enctype="multipart/form-data">
         <div>
             <label>
                 <input id="title" name="title" maxlength="100" height="20%" width="90%" placeholder="请输入博客title" type="text">
@@ -162,6 +162,7 @@
     $('#registered').on('click',function(event){
         var title=$("#title").val();
         var preface=$("#preface").val();
+        var params =$("#formto").serialize();
         event.preventDefault();
 
         if(title.trim().length < 1){
@@ -180,11 +181,7 @@
         var text = $("#text").val();
         $.ajax({
             type:"post",
-            data: {
-                "title": title,
-                "preface": preface,
-                "text": text,
-            },
+            data: params,
             url:"/saveUserText",
             beforeSend:function () {
 

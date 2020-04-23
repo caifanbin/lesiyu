@@ -44,8 +44,9 @@ properties:
   imgUrl: http://127.0.0.1:0000/
   uploadPath: /Users/test/Desktop/123/
 
-debug: true
-logging:
-  level:
-    com:
-     binge: debug
+
+
+mybatis:
+  mapper-locations: classpath:mybatis/mapper/*Mapper.xml
+  config-location: classpath:mybatis/mybatis-config.xml
+
